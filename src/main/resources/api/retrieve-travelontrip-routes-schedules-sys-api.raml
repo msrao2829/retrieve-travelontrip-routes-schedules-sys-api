@@ -1,0 +1,66 @@
+#%RAML 1.0
+title: retrieve-travelontrip-routes-schedules-sys-api
+version: v1
+description: This API will fetch routes and schedules from travel on trip system
+protocols:
+  - HTTP
+  - HTTPS
+mediaType: 
+- application/json
+uses:
+  common: /libraries/common/commonBusinessLibrary.raml
+types:
+  getRoutesResponse: !include /libraries/routes/dataTypes/200ResponseGetRoutesDataType.raml
+  getSchedulesResponse: !include /libraries/schedules/dataTypes/200ResponseGetSchedulesDataType.raml
+/{transportType}:
+  /{transportCompany}:
+    /routes:
+      get:
+        is: 
+          - common.transactionId
+        responses:
+          200:
+            body:
+              application/json:
+                type: getRoutesResponse
+                example: !include /libraries/routes/examples/200ResponseGetRoutesExample.json
+          400:
+            body:
+              application/json:
+                example: !include /libraries/common/examples/400ResponseExample.json
+          404:
+            body:
+              application/json:
+                example: !include /libraries/common/examples/404ResponseExample.json
+          500:
+            body:
+              application/json:
+                example: !include /libraries/common/examples/500ResponseExample.json
+    /schedules:
+      get:
+        is: 
+          - common.transactionId
+          - common.departureLocationCode
+          - common.destinationLocationCode
+        responses:
+          200:
+            body:
+              application/json:
+                type: getSchedulesResponse
+                example: !include /libraries/schedules/examples/200ResponseGetSchedulesExample.json
+          400:
+            body:
+              application/json:
+                example: !include /libraries/common/examples/400ResponseExample.json
+          404:
+            body:
+              application/json:
+                example: !include /libraries/common/examples/404ResponseExample.json
+          500:
+            body:
+              application/json:
+                example: !include /libraries/common/examples/500ResponseExample.json
+
+
+
+        
