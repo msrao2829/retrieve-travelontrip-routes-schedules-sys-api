@@ -41,9 +41,9 @@ output application/json
 attributes.headers.transactionId]]></ee:set-variable>
             </ee:variables>
         </ee:transform>
-		<logger level="INFO" doc:name="startLogger" doc:id="97aff136-0d80-4f3d-80b3-9730d199f4dd" message="------Request Recieved For travelOnTrip Routes system api for transactionId: #[vars.transactionId]------"/>
+		<logger level="INFO" doc:name="startLoggerRoutes" doc:id="97aff136-0d80-4f3d-80b3-9730d199f4dd" message="------Request Recieved For travelOnTrip Routes system api for transactionId: #[vars.transactionId]------"/>
 		<flow-ref doc:name="Flow Reference" doc:id="34e8ea7d-77f1-49f2-93e8-f9bf8b66f406" name="travelOnTrip-getRoutes-implementationSub_Flow"/>
-		<logger level="INFO" doc:name="endLogger" doc:id="a917c4b2-062c-4587-aee3-594b29b7e8d1" message="------Respond sent For travelOnTrip Routes system api for transactionId: #[vars.transactionId]------"/>
+		<logger level="INFO" doc:name="endLoggerRoutes" doc:id="a917c4b2-062c-4587-aee3-594b29b7e8d1" message="------Response sent For travelOnTrip Routes system api for transactionId: #[vars.transactionId]------"/>
     </flow>
     <flow name="get:\(transportType)\(transportCompany)\schedules:retrieve-travelontrip-routes-schedules-sys-api-config">
         <ee:transform doc:name="Transform Message">
@@ -56,8 +56,8 @@ output application/json
 attributes.headers.transactionId]]></ee:set-variable>
             </ee:variables>
         </ee:transform>
-		<logger level="INFO" doc:name="Logger" doc:id="57b74007-0986-47aa-b1e2-7beb3ba15031" message="------Request Recieved For travelOnTrip schedules system api for transactionId: #[vars.transactionId]------"/>
+		<logger level="INFO" doc:name="startLoggerSchedules" doc:id="57b74007-0986-47aa-b1e2-7beb3ba15031" message="------Request recieved For travelOnTrip schedules system api for transactionId: #[vars.transactionId]------"/>
 		<flow-ref doc:name="Flow Reference" doc:id="f8bfd449-df7e-491a-9565-5d19cc886273" name="travelOnTrip-getSchedules-implementationSub_Flow"/>
-		<logger level="INFO" doc:name="Logger" doc:id="a76aa917-4e19-43cb-ae3e-db15d2d575e9" message="------Response sent For travelOnTrip Schedules system api for transactionId: #[vars.transactionId]------"/>
+		<logger level="INFO" doc:name="endLoggerSchedules" doc:id="a76aa917-4e19-43cb-ae3e-db15d2d575e9" message="------Response sent For travelOnTrip Schedules system api for transactionId: #[vars.transactionId]------"/>
     </flow>
 </mule>
